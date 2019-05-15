@@ -12,6 +12,7 @@
             "homepage": "https://ocean-shop.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.1.0",
         "symfony/dom-crawler": "^3.4 | ^4",
@@ -24,11 +25,6 @@
     "autoload": {
         "psr-4": {
             "Beer\\Farpost\\": "/src"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
         }
     }
 }
