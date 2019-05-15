@@ -1,5 +1,7 @@
 <?php
 
+namespace Beer\Farpost;
+
 use Wa72\HtmlPageDom\HtmlPage;
 use Wa72\HtmlPageDom\HtmlPageCrawler;
 
@@ -7,19 +9,19 @@ class Farpost {
 
     public $store = [
         'RestartService' => 'https://www.farpost.ru/user/RestartService/tech/communication/parts/?page=',
-        'iMarket' => 'https://www.farpost.ru/user/iMarketShop/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
-        'iCanHelp' => 'https://www.farpost.ru/user/iCanHelp/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'VNGSM' => 'https://www.farpost.ru/user/vngsm/tech/communication/parts/?page=',
-        'iVietStore' => 'https://www.farpost.ru/user/iVietStore/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
-        'ElectraShop' => 'https://www.farpost.ru/user/ElectraShop/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'DvSota' => 'https://www.farpost.ru/user/dvsotarepair/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'GsmService' => 'https://www.farpost.ru/user/gsmservicevl/tech/communication/parts/?page=',
-        'iMegaVlad' => 'https://www.farpost.ru/user/imegavl/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'StarPhone' => 'https://www.farpost.ru/user/JediGSM/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'Noutparts' => 'https://www.farpost.ru/user/Noutparts/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
-        'Oceanshop' => 'https://www.farpost.ru/user/Oceanshopcom/tech/communication/parts/?page=',
-        'TechnoShop' => 'https://www.farpost.ru/user/Technoshop/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
-        'Надежный компьютер' => 'https://www.farpost.ru/user/Demonyak/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'iMarket' => 'https://www.farpost.ru/user/iMarketShop/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
+//        'iCanHelp' => 'https://www.farpost.ru/user/iCanHelp/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'VNGSM' => 'https://www.farpost.ru/user/vngsm/tech/communication/parts/?page=',
+//        'iVietStore' => 'https://www.farpost.ru/user/iVietStore/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
+//        'ElectraShop' => 'https://www.farpost.ru/user/ElectraShop/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'DvSota' => 'https://www.farpost.ru/user/dvsotarepair/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'GsmService' => 'https://www.farpost.ru/user/gsmservicevl/tech/communication/parts/?page=',
+//        'iMegaVlad' => 'https://www.farpost.ru/user/imegavl/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'StarPhone' => 'https://www.farpost.ru/user/JediGSM/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'Noutparts' => 'https://www.farpost.ru/user/Noutparts/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
+//        'Oceanshop' => 'https://www.farpost.ru/user/Oceanshopcom/tech/communication/parts/?page=',
+//        'TechnoShop' => 'https://www.farpost.ru/user/Technoshop/tech/communication/parts/+/%C4%E8%F1%EF%EB%E5%E8/?goodPresentState%5B%5D=present&page=',
+//        'Надежный компьютер' => 'https://www.farpost.ru/user/Demonyak/tech/communication/parts/?goodPresentState%5B%5D=present&page=',
     ];
     public $product = [];
 
@@ -38,12 +40,11 @@ class Farpost {
         $fp = fopen('farpost_price.csv', 'w');
 
         foreach ($this->generateData() as $fields) {
-            
+
             fwrite($fp, implode(',', $fields) . "\r\n");
             //fputcsv($fp, $fields, ',');
-            
         }
-        
+
         fclose($fp);
     }
 
@@ -65,7 +66,7 @@ class Farpost {
                 foreach ($page->filter('tr.bull-item') as $val) {
                     $val = new HtmlPageCrawler($val);
 
-    
+
                     $this->product[] = [
                         'id' => ++$id,
                         //'name' => $this->substrName($val->filter('a.bulletinLink')->text()),

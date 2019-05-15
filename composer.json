@@ -18,13 +18,12 @@
         "symfony/css-selector": "^3.4 | ^4",
         "phpunit/phpunit": "^6|^7",
         "wa72/html-pretty-min": "~0.1",
-        "mikey179/vfsStream": "^1.6",
-        "bee-r/farpost": "dev"
+        "mikey179/vfsStream": "^1.6"
     },
 
     "autoload": {
         "psr-4": {
-            "Beer\\Farpost\\": "vendor/beer/src/"
+            "Beer\\Farpost\\": "/src"
         }
     },
     "extra": {
