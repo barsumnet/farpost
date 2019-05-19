@@ -1,8 +1,8 @@
 <?php
 
-namespace Beer\Farpost;
+namespace Barsumnet\Farpost;
 
-use Beer\Farpost\Farpost;
+use Barsumnet\Farpost\Farpost;
 
 $farpost = new Farpost();
 
