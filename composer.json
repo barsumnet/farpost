@@ -1,15 +1,14 @@
 {
-    "name": "beer/farpost",
+    "name": "barsumnet/farpost",
     "description": "Описание",
     "keywords": ["HTML", "DOM", "Farpost"],
-    "homepage": "http://github.com/bee-r/farpost",
+    "homepage": "http://github.com/barsumnet",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Bee-r",
-            "email": "admin@barsum.net",
-            "homepage": "https://ocean-shop.com"
+            "name": "Сычевский Максим",
+            "email": "admin@barsum.net"
         }
     ],
     "minimum-stability": "dev",
@@ -24,7 +23,7 @@
 
     "autoload": {
         "psr-4": {
-            "Beer\\Farpost\\": "/src"
+            "Barsumnet\\Farpost\\": "src"
         }
     }
 }

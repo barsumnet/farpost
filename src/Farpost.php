@@ -1,6 +1,6 @@
 <?php
 
-namespace Beer\Farpost;
+namespace Barsumnet\Farpost;
 
 use Wa72\HtmlPageDom\HtmlPage;
 use Wa72\HtmlPageDom\HtmlPageCrawler;
