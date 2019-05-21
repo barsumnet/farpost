@@ -89,7 +89,9 @@ class Taggsm {
                 //Артикул поставщика
                 $export->getActiveSheet()->setCellValue('B' . $count, 'zm' . $sheet->getCell('B' . $row)->getValue());
                 //Наименование
-                $export->getActiveSheet()->setCellValue('C' . $count, $sheet->getCell('C' . $row)->getValue());
+                //str_replace();  Установка дисплея на
+
+                $export->getActiveSheet()->setCellValue('C' . $count, preg_replace('/(Дисплей для)/', 'Установка дисплея на', $sheet->getCell('C' . $row)->getValue()));
                 //Цена
                 //$export->getActiveSheet()->setCellValue('D' . $count, $sheet->getCell('D' . $row)->getValue());
                 $export->getActiveSheet()->setCellValue('D' . $count, $this->replacePrice($sheet->getCell('D' . $row)->getValue()));
@@ -149,35 +151,13 @@ class Taggsm {
     protected function selectName($verifiableData, $data) {
 
         foreach ($data as $val) {
-            // var_dump($val);
-//
-//            var_dump($verifiableData);
-//            var_dump($val);
-//            $pos = strpos($verifiableData, $val);
-//
-//            //var_dump($pos);
-//
-//            if ($pos === true) {
-//                //  var_dump('найдена');
-//            } else {
-//                //  var_dump('не найдена');
-//            }
-
-
 
             $pos = strpos($verifiableData, $val);
 
-// Оператор !== также можно использовать.  Использование != не даст верного
-// результата, так как 'a' находится в нулевой позиции. Выражение (0 != false) приводится
-// к false.
             if ($pos !== false) {
-                //echo "Строка '$val' найдена в строке '$verifiableData'";
-                //echo " в позиции $pos";
                 return true;
             } else {
                 continue;
-                // return false;
-                //echo "Строка '$val' не найдена в строке '$verifiableData'";
             }
         }
     }
